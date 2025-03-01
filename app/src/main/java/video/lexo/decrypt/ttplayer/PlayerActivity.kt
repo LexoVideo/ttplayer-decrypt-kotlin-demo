@@ -145,4 +145,12 @@ class PlayerActivity : Activity() {
         player.setIntOption(TTVideoEngine.PLAYER_OPTION_INT_ALLOW_ALL_EXTENSIONS, 1)
         player.play()
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        // Release it when you don't need it anymore.
+        sessionMap.values.forEach {
+            it.decryptor.release()
+        }
+    }
 }
