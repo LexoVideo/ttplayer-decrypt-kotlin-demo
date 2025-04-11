@@ -15,7 +15,7 @@ import com.ss.ttvideoengine.TTVideoEngineInterface
 import com.ss.ttvideoengine.source.DirectUrlSource
 import video.lexo.decrypt.DecryptResult
 import video.lexo.decrypt.DecryptState
-import video.lexo.decrypt.PlayerDecryptor
+import video.lexo.decrypt.Decryptor
 import java.nio.ByteBuffer
 import java.util.Collections
 
@@ -25,8 +25,7 @@ class PlayerActivity : Activity() {
     private companion object {
         private const val TAG = "PlayerActivity"
 
-        //Pass in the IV related to encryption and decryption
-        private const val DECRYPT_IV = "xxxxxxx"
+        private const val CRYPT_KEY = "xxxxxxx"
     }
 
     private val sessionMap = Collections.synchronizedMap(HashMap<String, UrlProtocolSession>())
@@ -83,7 +82,7 @@ class PlayerActivity : Activity() {
                 if (url.isNullOrEmpty()) return
                 var session = sessionMap[url]
                 if (session != null) return
-                val decryptor = PlayerDecryptor(this@PlayerActivity, DECRYPT_IV)
+                val decryptor = Decryptor(CRYPT_KEY)
                 session = UrlProtocolSession(decryptor)
                 sessionMap[url] = session
             }

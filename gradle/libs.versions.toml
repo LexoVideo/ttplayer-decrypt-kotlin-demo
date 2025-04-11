@@ -7,7 +7,7 @@ espressoCore = "3.6.1"
 appcompat = "1.7.0"
 material = "1.12.0"
 player = "1.42.3.103"
-decrypt = "2.1.6"
+decrypt = "2.3.0"
 okhttp = "4.11.0"
 
 [libraries]
