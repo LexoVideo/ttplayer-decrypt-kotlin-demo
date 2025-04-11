@@ -9,7 +9,7 @@ repositories {
 ```
 
 ```kotlin
-implementation 'video.lexo.decrypt:player:2.1.6'
+implementation 'video.lexo.decrypt:player:2.3.0'
 implementation 'com.bytedanceapi:ttsdk-player_premium:1.42.3.103'
 ```
 
